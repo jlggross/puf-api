@@ -1,0 +1,11 @@
+{
+  "name": "puf-api",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": {
+    "name": "João Gross",
+    "email": "joaolggross@gmail.com",
+  },
+  "license": "MIT",
+  "private": true
+}
