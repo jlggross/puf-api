@@ -1,0 +1,40 @@
+# OS Specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*cache.json
+
+# IDE Specific
+nbproject
+.~lock.*
+.buildpath
+.idea
+.project
+.settings
+composer.lock
+*.sublime-workplace
+*.swp
+*.swo
+
+# Project Specific
+node_modules
+tmp
+*.tmp*
+*.log
+.changelog
+coverage
+.nyc_output/
+*.progress-estimator*
+packages/micro/prisma/client
+packages/micro/prisma/graphql
+*.docker-volumes
+dist
+.volumes
+
+# Local env files
+.env
+.env*
