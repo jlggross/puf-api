@@ -4,8 +4,27 @@
   "main": "index.js",
   "author": {
     "name": "João Gross",
-    "email": "joaolggross@gmail.com",
+    "email": "joaolggross@gmail.com"
   },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "scripts": {
+    "fix": "echo test"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "./src/**/*.{js,md,json}": [
+      "yarn fix"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  }
 }

@@ -19,6 +19,7 @@ composer.lock
 *.sublime-workplace
 *.swp
 *.swo
+.vscode
 
 # Project Specific
 node_modules

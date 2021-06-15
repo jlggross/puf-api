@@ -41,3 +41,61 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
   - question author (João Gross <joaolggross@gmail.com>): João Gross
   - question license (MIT):
   - question private: true
+
+## Commit Quality
+
+- Conventional Commits Website: <https://www.conventionalcommits.org/en/v1.0.0/>
+  - The objective is to standardize commits for machines and humans
+- How to configure the project so that commits are in this standard?
+
+- Libraries:
+  - lint-staged: <https://www.npmjs.com/package/lint-staged>
+  - @commitlint/config-conventional: <https://www.npmjs.com/package/@commitlint/config-conventional>
+  - @commitlint/cli: <https://www.npmjs.com/package/@commitlint/cli>
+  - husky: <https://www.npmjs.com/package/husky>
+- Add then as development dependency: `yarn add --dev <packages>`
+  - `yarn add --dev lint-staged @commitlint/config-conventional @commitlint/cli husky`
+  - These dependencies are not commited for production
+
+### Configure commitlint
+
+- Add to package.json:
+
+```JSON
+{
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
+```
+
+### Configure lint-staged
+
+- Add to package.json:
+
+```JSON
+{
+  "scripts": {
+    "fix": ""
+  }
+
+  "lint-staged": {
+    "./app/**/*.{js,td,md,json}": [
+      "yarn fix"
+    ]
+  }
+}
+```
+
+- This dependency runs commands on the files in the gits staged area
+- Files in the staged area are files added to be committed
+
+### Initialize Husky
+
+- Init Husky: `yarn husky install`
+- Husky adds git hooks
+  - Add commands to run before or after git
+- Add git hook to run before a git commit command:
+  - `yarn husky add .husky/commit-msg "yarn commitlint --edit $1"`
