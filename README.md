@@ -78,7 +78,11 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 ```JSON
 {
   "scripts": {
-    "fix": ""
+    "fix": "run-s \"fix:* {@}\" --",
+    "fix:lint": "eslint --fix --no-error-on-unmatched-pattern",
+    "fix:format": "prettier --write",
+    "format": "yarn fix:format 'src/**/*.(js|ts|md|json)'",
+    "lint": "yarn fix:lint src/**/*.{js,ts,md,json}",
   }
 
   "lint-staged": {
@@ -91,11 +95,15 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
 - This dependency runs commands on the files in the gits staged area
 - Files in the staged area are files added to be committed
+- We need to add another development dependency to use 'run-s':
+  - `yarn add --dev npm-run-all`
 
 ### Initialize Husky
 
 - Init Husky: `yarn husky install`
 - Husky adds git hooks
   - Add commands to run before or after git
-- Add git hook to run before a git commit command:
+- Add git hook to check files in the staged area:
+  - `yarn husky add .husky/pre-commit "yarn lint-staged $1"`
+- Add git hook to check commit message:
   - `yarn husky add .husky/commit-msg "yarn commitlint --edit $1"`
