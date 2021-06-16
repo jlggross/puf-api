@@ -19,16 +19,25 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
   - Website to make gitignore file: <https://www.toptal.com/developers/gitignore>
 
-- Initialize project: `git init`
-- Add files to commit: `git add .`
-- Configure user
-  - `git config --global user.email "joaolggross@gmail.com"`
-  - `git config --global user.name "João Gross"`
-- Make commit: `git commit -m <message>`
-- Create new branch: `git checkout -b develop`
-  - Development always on develop branch
-- See git tree: `gitk`
-  - Run this command on Git Bash
+1. Initialize project: `git init`
+2. Add files to commit: `git add .`
+3. Configure user
+
+- `git config --global user.email "joaolggross@gmail.com"`
+- `git config --global user.name "João Gross"`
+
+4. Make commit: `git commit -m <message>`
+5. Create new branch: `git checkout -b develop`
+
+- Development always on develop branch
+
+6. See git tree: `gitk`
+
+- Run this command on Git Bash
+
+7. Return to last commit: `git reset HEAD@{1} --soft`
+
+- '--soft' : files return to staged area
 
 ## Yarn
 
@@ -98,12 +107,32 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 - We need to add another development dependency to use 'run-s':
   - `yarn add --dev npm-run-all`
 
+#### Install latest stable node version
+
+- Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
+
+```bash
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+```
+
 ### Initialize Husky
 
 - Init Husky: `yarn husky install`
 - Husky adds git hooks
   - Add commands to run before or after git
-- Add git hook to check files in the staged area:
+- Add git hook to pass eslint in files inside the staged area:
   - `yarn husky add .husky/pre-commit "yarn lint-staged $1"`
+  - Files are formatted before commit
 - Add git hook to check commit message:
   - `yarn husky add .husky/commit-msg "yarn commitlint --edit $1"`
+  - Commit message structure is checked before commit
+
+### Install eslint
+
+- Install command:
+
+```bash
+yarn add --dev prettier eslint eslint-config-prettier eslint-plugin-json eslint-plugin-prettier
+```
