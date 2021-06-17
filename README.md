@@ -216,3 +216,13 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
   - Hot reload problem with WSL 2: <https://stackoverflow.com/questions/63402588/how-can-nodemon-be-made-to-work-with-wsl-2>
   - Using WSL 2 with VS Code: <https://docs.microsoft.com/pt-br/windows/wsl/tutorials/wsl-vscode>
   - WSL 2, VSCode, zsh, oh my zsh, spaceship, and Remote WSL: <https://mateusmlo.medium.com/guia-windows-terminal-wsl-2-e-vs-code-24a4635bef41>
+
+## Task Management
+
+1. ClickUp: <https://clickup.com/>
+2. teamwork: <https://www.teamwork.com/>
+3. Asana: <https://asana.com/>
+   1. Has subtasks inside a card
+4. Trello: <https://trello.com/pt-BR>
+5. Jira: <https://www.atlassian.com/br/software/jira>
+6. GitHub Project
