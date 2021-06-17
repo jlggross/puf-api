@@ -33,6 +33,10 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
 - We are able to use ES modules import structure and babel transpiles to CommonJS
 
+8. Koa.js : Framework
+
+9. Environment Variables
+
 ## Install latest stable node version
 
 - Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
@@ -249,3 +253,17 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 - Github: <https://github.com/koajs/router>
   - API reference: <https://github.com/koajs/router/blob/master/API.md>
 - Install: `yarn add @koa/router`
+
+## Environment Variables
+
+- File: .env
+- Extension for VS Code: DotENV
+- NPM package: dotenv
+  - Website: <https://www.npmjs.com/package/dotenv>
+  - Install: `yarn add dotenv`
+- NPM package: dotenv-safe
+  - Website: <https://www.npmjs.com/package/dotenv-safe>
+  - Install: `yarn add dotenv-safe`
+  - The same as dotenv, but also reads any variables defined in '.env.example'
+    - '.env.example' has the same variables as '.env' but with no values
+    - '.env.example' is versionated
