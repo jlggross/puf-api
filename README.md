@@ -37,6 +37,8 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
 9. Environment Variables
 
+10. Database: PostgreSQL
+
 ## Install latest stable node version
 
 - Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
@@ -267,3 +269,36 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
   - The same as dotenv, but also reads any variables defined in '.env.example'
     - '.env.example' has the same variables as '.env' but with no values
     - '.env.example' is versionated
+
+## Database: PostgreSQL
+
+- Latest PostgreSQL docker image: <https://hub.docker.com/_/postgres>
+- Configure Docker Desktop for WSL 2: <https://docs.docker.com/docker-for-windows/wsl/>
+
+1. Create docker-compose.yml
+2. Configure docker-compose.yml
+3. Run `docker-compose up -d`
+   1. This will download postgres docker image from docker repository if not yet downloaded
+4. Run `docker ps -a`
+   1. To check running docker images
+5. Run `docker exec -it db bash`
+   1. Enter container 'db' and open bash
+6. Run `docker logs -f db` to check image logs
+
+### Work with Database: Prisma
+
+- Website: <https://www.prisma.io/>
+  - Others
+    - Sequelize: <http://sequelize.org/>
+    - Mongoose: <https://mongoosejs.com/>
+    - TypeORM: <https://typeorm.io/#/>
+- Install: `yarn add prisma`
+- Prisma support to JavaScript and Typescript
+- Prisma support to MySQL, PostgreSQL, SQLite
+- VS Code Extension: Prisma
+  - Highlight and autocompletion
+
+1. Create a file prisma/schema.prisma
+2. Configure 'schema.prisma'
+   1. Steps here: <<https://www.prisma.io/docs/concepts/components/prisma-client>
+3. Run `yarn prisma generate` to create '@prisma/client' in node_modules/
