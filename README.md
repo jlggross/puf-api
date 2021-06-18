@@ -300,5 +300,32 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 
 1. Create a file prisma/schema.prisma
 2. Configure 'schema.prisma'
-   1. Steps here: <<https://www.prisma.io/docs/concepts/components/prisma-client>
+   1. Steps here: <https://www.prisma.io/docs/concepts/components/prisma-client>
 3. Run `yarn prisma generate` to create '@prisma/client' in node_modules/
+4. Create database with Prisma Migrate `yarn prisma migrate dev --preview-feature`
+   1. Postgres docker image must be running
+   2. Choose name for migration
+
+### ER Modeling
+
+- MySQL Worbench: <https://www.mysql.com/products/workbench/>
+- dbdiagram.io: <https://dbdiagram.io/home>
+
+### pgAdmin and
+
+pgAdmin:
+
+- Used to visualize the database
+- Website: <https://www.pgadmin.org/download/>
+
+Beekeeper Studio
+
+- Website: <https://www.beekeeperstudio.io/>
+- Configuration:
+  - Connection Type: postgres
+  - Host: localhost
+  - Port: 9900
+  - User: puf_admin
+  - Password: puf_pass
+  - Default Database: puf
+  - Save Connection: PUF LOCAL
