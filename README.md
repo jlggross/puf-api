@@ -40,9 +40,10 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 10. Database
 
 - PostgreSQL Configuration
-- Beekeeper Studio
+- Beekeeper Studio: Visualize database
 - Prisma: Schema, Generation and Migration
   - CRUD in the database
+- Insomnia: Test routes and requests (GET, POST, PUT, DELETE)
 
 ## Install latest stable node version
 
