@@ -37,7 +37,12 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
 9. Environment Variables
 
-10. Database: PostgreSQL
+10. Database
+
+- PostgreSQL Configuration
+- Beekeeper Studio
+- Prisma: Schema, Generation and Migration
+  - CRUD in the database
 
 ## Install latest stable node version
 
@@ -86,7 +91,15 @@ sudo n stable
 
 - '--soft' : files return to staged area
 
-8. koa.js : Framework
+8. Add files to last commit
+
+```
+git commit --amend  # Able to edit commit message
+```
+
+```git commit --amend --no-edit # Do not edit last commit message
+
+```
 
 ## Yarn
 
@@ -305,6 +318,12 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 4. Create database with Prisma Migrate `yarn prisma migrate dev --preview-feature`
    1. Postgres docker image must be running
    2. Choose name for migration
+
+- Everytime we change the prisma schema we have to create a new Prisma Client:
+
+```
+yarn prisma generate
+```
 
 ### ER Modeling
 
