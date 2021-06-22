@@ -349,3 +349,60 @@ Beekeeper Studio
   - Password: puf_pass
   - Default Database: puf
   - Save Connection: PUF LOCAL
+
+## Authentication (Stateless)
+
+Information for authentication:
+
+- Login
+  - Email (Username)
+  - Magiclink
+- Password
+
+Authentication steps:
+
+1. User inserts email and password to login
+2. Server identifies user in the database and returns the user a token
+   1. JWT (JSON Web token)
+3. JWT is stored in the front-end (user)
+4. For every request the user send the JWT to the server for authentication
+   1. Stateless approach (no user session state is saved)
+
+### Asymmetric Cryptography
+
+User A
+
+- Public key
+- Private key
+
+User B
+
+- Public key
+- Private key
+
+Message flow for authenticity:
+
+1. User A wants to send message to user B
+2. User A cryptographs his message with his private key and send to User B
+3. User B takes cryptographed message and uses public key from User A to access the message original content
+
+Message flow for privacy:
+
+1. User A wants to send message to user B
+2. User A cryptographs his message with public key from User B and send to User B
+3. User B takes cryptographed message and uses his private key A to access the message original content
+
+### JWT (JSON Web Token)
+
+More info: <https://dev.to/brunobertolini/tudo-o-que-voce-precisa-saber-sobre-json-web-tokens-5dn7>
+
+Pattern with
+
+- Header: Object with meta informations
+  - Algorithm: Most used is HS256
+- Payload: Message to be sent
+  - Other informations: User id
+- Signature: Hash with origin private key (guarantees authenticity)
+  - Payload must not have sensitive information
+
+Website: <https://jwt.io/>
