@@ -2,7 +2,7 @@
 
 Here are some notes for the development of the backend of the PayUfirst (PUF) project.
 
-## Technologies and packages
+## **Technologies and packages**
 
 1. Linters: See Linters section
 
@@ -45,7 +45,7 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
   - CRUD in the database
 - Insomnia: Test routes and requests (GET, POST, PUT, DELETE)
 
-## Install latest stable node version
+## **Install latest stable node version**
 
 - Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
 
@@ -55,7 +55,7 @@ sudo npm install -g n
 sudo n stable
 ```
 
-## Linters
+## **Linters**
 
 - File .editorconfig : Standardize configurations between different editors
 
@@ -66,20 +66,23 @@ sudo n stable
 
 - File .prettierrc : Prettier configuration
 
-## Git
+## **Git**
 
 - File .gitignore
 
   - Website to make gitignore file: <https://www.toptal.com/developers/gitignore>
 
 1. Initialize project: `git init`
+
 2. Add files to commit: `git add .`
+
 3. Configure user
 
 - `git config --global user.email "joaolggross@gmail.com"`
 - `git config --global user.name "João Gross"`
 
 4. Make commit: `git commit -m <message>`
+
 5. Create new branch: `git checkout -b develop`
 
 - Development always on develop branch
@@ -98,11 +101,11 @@ sudo n stable
 git commit --amend  # Able to edit commit message
 ```
 
-```git commit --amend --no-edit # Do not edit last commit message
-
+```
+git commit --amend --no-edit # Do not edit last commit message
 ```
 
-## Yarn
+## **Yarn**
 
 - Initialize Yarn Project: `yarn init`. This creates a package.json file
   - question name (api): puf-api
@@ -114,7 +117,7 @@ git commit --amend  # Able to edit commit message
   - question license (MIT):
   - question private: true
 
-## Commit Quality
+## **Commit Quality**
 
 - Conventional Commits Website: <https://www.conventionalcommits.org/en/v1.0.0/>
   - The objective is to standardize commits for machines and humans
@@ -129,7 +132,7 @@ git commit --amend  # Able to edit commit message
   - `yarn add --dev lint-staged @commitlint/config-conventional @commitlint/cli husky`
   - These dependencies are not committed for production
 
-### Configure commitlint
+### **Configure commitlint**
 
 - Add to package.json:
 
@@ -143,7 +146,7 @@ git commit --amend  # Able to edit commit message
 }
 ```
 
-### Configure lint-staged
+### **Configure lint-staged**
 
 - Add to package.json:
 
@@ -170,7 +173,7 @@ git commit --amend  # Able to edit commit message
 - We need to add another development dependency to use 'run-s':
   - `yarn add --dev npm-run-all`
 
-### Initialize Husky
+### **Initialize Husky**
 
 - Init Husky: `yarn husky install`
 - Husky adds git hooks
@@ -182,7 +185,7 @@ git commit --amend  # Able to edit commit message
   - `yarn husky add .husky/commit-msg "yarn commitlint --edit $1"`
   - Commit message structure is checked before commit
 
-### Install eslint
+### **Install eslint**
 
 - Install command:
 
@@ -190,7 +193,7 @@ git commit --amend  # Able to edit commit message
 yarn add --dev prettier eslint eslint-config-prettier eslint-plugin-json eslint-plugin-prettier
 ```
 
-## Babel
+## **Babel**
 
 1. Description
 
@@ -217,7 +220,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 
 - Build application for production
 
-## Nodemon
+## **Nodemon**
 
 1. Description
 
@@ -239,7 +242,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
   - Using WSL 2 with VS Code: <https://docs.microsoft.com/pt-br/windows/wsl/tutorials/wsl-vscode>
   - WSL 2, VSCode, zsh, oh my zsh, spaceship, and Remote WSL: <https://mateusmlo.medium.com/guia-windows-terminal-wsl-2-e-vs-code-24a4635bef41>
 
-## Task Management
+## **Task Management**
 
 1. ClickUp: <https://clickup.com/>
 2. teamwork: <https://www.teamwork.com/>
@@ -249,7 +252,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 5. Jira: <https://www.atlassian.com/br/software/jira>
 6. GitHub Project
 
-## Koa.js
+## **Koa.js**
 
 - Similar to Express, but simpler
 - Does middleware management
@@ -257,12 +260,12 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 - To run the server: `yarn dev`
   - Access in the browser: localhost:3000
 
-### Koa Body Parser
+### **Koa Body Parser**
 
 - Github: <https://github.com/koajs/bodyparser>
 - Install: `yarn add koa-bodyparser`
 
-### Koa Router
+### **Koa Router**
 
 - Router middleware for koa
 - Website: <https://www.npmjs.com/package/@koa/router>
@@ -270,7 +273,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
   - API reference: <https://github.com/koajs/router/blob/master/API.md>
 - Install: `yarn add @koa/router`
 
-## Environment Variables
+## **Environment Variables**
 
 - File: .env
 - Extension for VS Code: DotENV
@@ -284,7 +287,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
     - '.env.example' has the same variables as '.env' but with no values
     - '.env.example' is versionated
 
-## Database: PostgreSQL
+## **Database: PostgreSQL**
 
 - Latest PostgreSQL docker image: <https://hub.docker.com/_/postgres>
 - Configure Docker Desktop for WSL 2: <https://docs.docker.com/docker-for-windows/wsl/>
@@ -299,7 +302,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
    1. Enter container 'db' and open bash
 6. Run `docker logs -f db` to check image logs
 
-### Work with Database: Prisma
+### **Work with Database: Prisma**
 
 - Website: <https://www.prisma.io/>
   - Others
@@ -326,12 +329,12 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 yarn prisma generate
 ```
 
-### ER Modeling
+### **ER Modeling**
 
 - MySQL Worbench: <https://www.mysql.com/products/workbench/>
 - dbdiagram.io: <https://dbdiagram.io/home>
 
-### pgAdmin and
+### **pgAdmin and Beekeper Studio**
 
 pgAdmin:
 
@@ -350,7 +353,7 @@ Beekeeper Studio
   - Default Database: puf
   - Save Connection: PUF LOCAL
 
-## Authentication (Stateless)
+## **Authentication (Stateless)**
 
 Information for authentication:
 
@@ -368,7 +371,7 @@ Authentication steps:
 4. For every request the user send the JWT to the server for authentication
    1. Stateless approach (no user session state is saved)
 
-### Asymmetric Cryptography
+### **Asymmetric Cryptography**
 
 User A
 
@@ -392,7 +395,7 @@ Message flow for privacy:
 2. User A cryptographs his message with public key from User B and send to User B
 3. User B takes cryptographed message and uses his private key A to access the message original content
 
-### JWT (JSON Web Token)
+### **JWT (JSON Web Token)**
 
 More info: <https://dev.to/brunobertolini/tudo-o-que-voce-precisa-saber-sobre-json-web-tokens-5dn7>
 
@@ -406,3 +409,21 @@ Pattern with
   - Payload must not have sensitive information
 
 Website: <https://jwt.io/>
+
+Project dependency:
+
+```bash
+yarn add jsonwebtoken
+```
+
+### **User password in the database**
+
+- We have to save the passwords in the database with criptography
+- Use of one-way criptography
+- To check the users password we take the password the user informed, criptograph it and compare with the criptographed password already in the database.
+
+Project dependency:
+
+```bash
+yarn add bcryptjs
+```
