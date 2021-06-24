@@ -294,7 +294,7 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 
 1. Create docker-compose.yml
 2. Configure docker-compose.yml
-3. Run `docker-compose up -d`
+3. Run `docker-compose up -dC`
    1. This will download postgres docker image from docker repository if not yet downloaded
 4. Run `docker ps -a`
    1. To check running docker images
@@ -418,12 +418,25 @@ yarn add jsonwebtoken
 
 ### **User password in the database**
 
-- We have to save the passwords in the database with criptography
-- Use of one-way criptography
+- We have to save the passwords in the database with criptography (hashed password)
+  - Use of one-way criptography
 - To check the users password we take the password the user informed, criptograph it and compare with the criptographed password already in the database.
+  - This can be done with `bcript.compare(password, hashedPassword)`.
 
 Project dependency:
 
 ```bash
 yarn add bcryptjs
 ```
+
+### **Basic Auth (HTTP)**
+
+- Basic Auth from HTTP treats email and password in the header, instead of the payload of the request
+- In Insomnia we can choose set a **GET** operation to localhost:\<port\>/login
+  - Body: No Body
+  - Auth: Basic Auth
+- The header of the GET message will have a string similar to: ""Basic \<base64 encoded user:password\>"
+
+  - The username and the password are encoded in base64
+
+- More on HTTP Authentication: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication>
