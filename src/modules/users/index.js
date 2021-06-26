@@ -2,21 +2,19 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
 import { prisma } from '~/data'
+import { decodeBasicToken } from './services'
+import {
+	TokenTypeError,
+	CredentialsEncodedError,
+	CredentialsFormatError,
+} from './services'
 
 export const login = async (ctx) => {
-	//console.log(ctx.request.headers.authorization.split(' '))
-	const [type, credentials] = ctx.request.headers.authorization.split(' ')
-
-	if (type !== 'Basic') {
-		ctx.status = 400
-		return
-	}
-
-	const [email, password] = Buffer.from(credentials, 'base64')
-		.toString()
-		.split(':')
-
 	try {
+		const [email, password] = decodeBasicToken(
+			ctx.request.headers.authorization
+		)
+
 		const user = await prisma.user.findUnique({
 			where: { email },
 		})
@@ -31,6 +29,21 @@ export const login = async (ctx) => {
 		const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET)
 		ctx.body = { user, token }
 	} catch (error) {
+		if (error instanceof TokenTypeError) {
+			ctx.status = 400
+			return
+		}
+
+		if (error instanceof CredentialsEncodedError) {
+			ctx.status = 400
+			return
+		}
+
+		if (error instanceof CredentialsFormatError) {
+			ctx.status = 400
+			return
+		}
+
 		ctx.status = 500
 		ctx.body = 'Ops! Algo deu errado, tente novamente.'
 		return

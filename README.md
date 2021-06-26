@@ -45,6 +45,14 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
   - CRUD in the database
 - Insomnia: Test routes and requests (GET, POST, PUT, DELETE)
 
+11. Authentication
+
+- JWT (JSON Web Token)
+- Bcrypt
+- Basic Auth (HTTP)
+
+12. Automated Tests
+
 ## **Install latest stable node version**
 
 - Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
@@ -440,3 +448,60 @@ yarn add bcryptjs
   - The username and the password are encoded in base64
 
 - More on HTTP Authentication: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication>
+
+### **Resume**
+
+1. JWT: Use of private key for authentication. The user will use this token to make all the requests to the server when logged in the system.
+
+2. Bcrypt: Used to cryptograph and information. It is not possible do decryptograph. Used to save the user password in the database.
+
+3. Basic Auth (HTTP): Encode username and password provided by the user when trying to make a login. The API decoded this information and later see if the user is authorized.
+
+### **HTTPS**
+
+- Use of asynchronous cryptography
+
+## **Automated Tests**
+
+- Tests are used to check is the functions are returning the expected values.
+- It serves as an extra documentation about how each function works.
+- Abstractions to tests are not desired in automated tests, because tests must be clear.
+
+- TDD (Test-Driven Development): FAIL -> PASS -> REFACTOR -> FAIL
+
+### Jest
+
+- Website: <https://jestjs.io/pt-BR/>
+- Dependency: `yarn add --dev jest`
+- Run: `yarn jest`
+
+- Test Types (test Pyramid)
+
+  - Unit
+    - Fast test, but more expensive (takes time to make them).
+  - Integration
+    - Test integration between different parts of the code.
+    - Ensures that the system is working properly.
+    - Most cost-effective tests oin the Test Pyramid.
+  - UI (User Interface)
+    - Also called E2E (End-to-End) tests.
+    - Cheaper, less tests to make, easier to make, but takes more time to execute.
+    - End to End Framework: <https://www.cypress.io/>
+      - Cypress tests the interface
+      - It is an online tool
+    - Detox: <https://github.com/wix/Detox>
+      - Much use with React Native
+
+#### **Unit Test**
+
+Test steps:
+
+```javascript
+describe('User module', () => {
+	it('should return credentials by basic authentication token', () => {
+		// Preparation
+		// Execution
+		// Expected return
+	})
+})
+```
