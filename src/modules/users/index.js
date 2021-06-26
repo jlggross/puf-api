@@ -31,22 +31,21 @@ export const login = async (ctx) => {
 	} catch (error) {
 		if (error instanceof TokenTypeError) {
 			ctx.status = 400
+			ctx.body = 'TokenTypeError'
 			return
-		}
-
-		if (error instanceof CredentialsEncodedError) {
+		} else if (error instanceof CredentialsEncodedError) {
 			ctx.status = 400
+			ctx.body = 'CredentialsEncodedError'
 			return
-		}
-
-		if (error instanceof CredentialsFormatError) {
+		} else if (error instanceof CredentialsFormatError) {
 			ctx.status = 400
+			ctx.body = 'CredentialsFormatError'
+			return
+		} else {
+			ctx.status = 500
+			ctx.body = 'Ops! Algo deu errado, tente novamente.'
 			return
 		}
-
-		ctx.status = 500
-		ctx.body = 'Ops! Algo deu errado, tente novamente.'
-		return
 	}
 }
 
