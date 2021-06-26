@@ -21,7 +21,7 @@ describe('multiply by 2', () => {
 })
 */
 
-describe('User module', () => {
+describe('User services', () => {
 	it('should return credentials by basic authentication token', () => {
 		// Preparation
 		const email = 'joao@gmail.com'

@@ -19,9 +19,14 @@ export const login = async (ctx) => {
 			where: { email },
 		})
 
+		if (!user) {
+			ctx.status = 404 // Not found
+			return
+		}
+
 		const passwordEqual = await bcrypt.compare(password, user.password) // user.password is hashed
 
-		if (!user || !passwordEqual) {
+		if (!passwordEqual) {
 			ctx.status = 404 // Not found
 			return
 		}

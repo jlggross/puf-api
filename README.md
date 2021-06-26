@@ -505,3 +505,8 @@ describe('User module', () => {
 	})
 })
 ```
+
+#### **Integration Test**
+
+- Package: supertest
+- Website: <https://www.npmjs.com/package/supertest>
