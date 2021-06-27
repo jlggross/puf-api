@@ -28,3 +28,8 @@ describe('User routes', () => {
 		expect(result.status).toBe(404)
 	})
 })
+
+afterAll((done) => {
+	server.close()
+	done()
+})
