@@ -510,3 +510,10 @@ describe('User module', () => {
 
 - Package: supertest
 - Website: <https://www.npmjs.com/package/supertest>
+- Yarn dev dependency:
+
+```bash
+yarn add --dev supertest
+```
+
+- Run specific test: `yarn test src/routes.test.js`
