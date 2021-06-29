@@ -300,6 +300,8 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 - Latest PostgreSQL docker image: <https://hub.docker.com/_/postgres>
 - Configure Docker Desktop for WSL 2: <https://docs.docker.com/docker-for-windows/wsl/>
 
+Configure Database
+
 1. Create docker-compose.yml
 2. Configure docker-compose.yml
 3. Run `docker-compose up -dC`
@@ -309,6 +311,15 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 5. Run `docker exec -it db bash`
    1. Enter container 'db' and open bash
 6. Run `docker logs -f db` to check image logs
+
+Reset Database
+
+1. `docker ps -a` : get name of database
+2. `docker rm -vf db` : delete docker image 'db'
+3. `docker-compose up -d` : run docker image again (reseted)
+4. `docker logs -f db` : check database 'db' status
+5. `yarn prisma migrate dev --preview-feature` : create sql tables in 'db'
+6. `yarn prisma generate` : create PrismaClient so we can access the database
 
 ### **Work with Database: Prisma**
 
@@ -517,3 +528,11 @@ yarn add --dev supertest
 ```
 
 - Run specific test: `yarn test src/routes.test.js`
+
+#### Jest Configuration
+
+- jest.config.js file at root
+- We want to make a test for the database.
+  - In order to test the database we need to create and delete data.
+  - This can't be done in the applications database.
+  - We need a parallel schema database to make these tests in order to preserve the application's data
