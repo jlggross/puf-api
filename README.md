@@ -348,6 +348,10 @@ Reset Database
 yarn prisma generate
 ```
 
+#### Prisma Middlewares
+
+- Website: <https://www.prisma.io/docs/concepts/components/prisma-client/middleware>
+
 ### **ER Modeling**
 
 - MySQL Worbench: <https://www.mysql.com/products/workbench/>
@@ -536,3 +540,4 @@ yarn add --dev supertest
   - In order to test the database we need to create and delete data.
   - This can't be done in the applications database.
   - We need a parallel schema database to make these tests in order to preserve the application's data
+- The configuration in jest.config.js allow the tests to run in a test database, instead of the develop database

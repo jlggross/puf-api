@@ -11,12 +11,12 @@ import {
 
 export const login = async (ctx) => {
 	try {
-		const [email, password] = decodeBasicToken(
+		const [inputEmail, inputPassword] = decodeBasicToken(
 			ctx.request.headers.authorization
 		)
 
 		const user = await prisma.user.findUnique({
-			where: { email },
+			where: { email: inputEmail },
 		})
 
 		if (!user) {
@@ -24,7 +24,8 @@ export const login = async (ctx) => {
 			return
 		}
 
-		const passwordEqual = await bcrypt.compare(password, user.password) // user.password is hashed
+		const { password: userPassword, ...userNoPassword } = user
+		const passwordEqual = await bcrypt.compare(inputPassword, userPassword) // userPassword is hashed, came from the db
 
 		if (!passwordEqual) {
 			ctx.status = 404 // Not found
@@ -32,7 +33,7 @@ export const login = async (ctx) => {
 		}
 
 		const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET)
-		ctx.body = { user, token }
+		ctx.body = { user: userNoPassword, token }
 	} catch (error) {
 		if (error instanceof TokenTypeError) {
 			ctx.status = 400
