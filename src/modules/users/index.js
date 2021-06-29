@@ -1,7 +1,8 @@
+import * as model from './model'
+
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 
-import { prisma } from '~/data'
 import { decodeBasicToken } from './services'
 import {
 	TokenTypeError,
@@ -15,7 +16,7 @@ export const login = async (ctx) => {
 			ctx.request.headers.authorization
 		)
 
-		const user = await prisma.user.findUnique({
+		const user = await model.findUnique({
 			where: { email: inputEmail },
 		})
 
@@ -57,7 +58,7 @@ export const login = async (ctx) => {
 
 export const list = async (ctx) => {
 	try {
-		const users = await prisma.user.findMany()
+		const users = await model.findMany()
 		ctx.body = users
 	} catch (error) {
 		ctx.status = 500
@@ -75,7 +76,7 @@ export const create = async (ctx) => {
 			saltRounds
 		)
 
-		const user = await prisma.user.create({
+		const user = await model.create({
 			data: {
 				name: ctx.request.body.name,
 				email: ctx.request.body.email,
@@ -96,7 +97,7 @@ export const update = async (ctx) => {
 	const { name, email } = ctx.request.body
 
 	try {
-		const user = await prisma.user.update({
+		const user = await model.update({
 			where: { id: ctx.params.id },
 			data: { name, email },
 		})
@@ -110,7 +111,7 @@ export const update = async (ctx) => {
 
 export const remove = async (ctx) => {
 	try {
-		await prisma.user.delete({
+		await model.remove({
 			where: { id: ctx.params.id },
 		})
 
