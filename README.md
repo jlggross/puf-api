@@ -53,6 +53,9 @@ Here are some notes for the development of the backend of the PayUfirst (PUF) pr
 
 12. Automated Tests
 
+- Jest and Supertest
+- Unit and Integration tests
+
 ## **Install latest stable node version**
 
 - Tutorial: <https://blog.geekhunter.com.br/update-node-js-tutorial-facil-rapido/>
@@ -112,6 +115,11 @@ git commit --amend  # Able to edit commit message
 ```
 git commit --amend --no-edit # Do not edit last commit message
 ```
+
+### GitHub VS Code Extension
+
+- GitLens
+- This extension adds features to the files inside a git repository
 
 ## **Yarn**
 
