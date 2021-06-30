@@ -10,6 +10,8 @@
 
 # Checklist
 
-[ ] Testado manualmente
-[ ] Testes passando
-[ ] Homologado
+- [ ] Testado manualmente
+- [ ] Testes passando
+- [ ] Homologado
+
+# Dúvidas
