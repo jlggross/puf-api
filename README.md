@@ -1,6 +1,6 @@
 # API (Backend)
 
-Here are some notes for the development of the backend of the PayUfirst (PUF) project.
+Notes for the development of the backend of the PayUfirst (PUF) project.
 
 ## **Technologies and packages**
 
@@ -120,6 +120,22 @@ git commit --amend --no-edit # Do not edit last commit message
 
 - GitLens
 - This extension adds features to the files inside a git repository
+
+### GitHub Templates
+
+- Create .github folder with ISSUE_TEMPLATE
+- Every .md file will describe a template for a specific issue.
+
+### SSH keys
+
+1. Access home folder: `cd ~/`
+   1. In Git bash the path is: '/c/Users/username'
+2. Create ssh key: `ssh-keygen -t ed25519 -C "your_email@example.com"`
+   1. Details here: <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+3. Check create keys: `ls .ssh`
+4. Get public key content: `cat .ssh/key-name.pub`
+   1. Copy entire output
+   2. Go to <https://github.com/settings/keys> and add "New SSH key"
 
 ## **Yarn**
 
