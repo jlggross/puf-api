@@ -2,6 +2,49 @@
 
 Notes for the development of the backend of the PayUfirst (PUF) project.
 
+## Summary
+
+- [API (Backend)](#api-backend)
+  - [Summary](#summary)
+  - [**Technologies and packages**](#technologies-and-packages)
+  - [**Install latest stable node version**](#install-latest-stable-node-version)
+  - [**Linters**](#linters)
+  - [**Git**](#git)
+    - [GitHub VS Code Extension](#github-vs-code-extension)
+    - [GitHub Templates](#github-templates)
+    - [SSH keys](#ssh-keys)
+  - [**Yarn**](#yarn)
+  - [**Commit Quality**](#commit-quality)
+    - [**Configure commitlint**](#configure-commitlint)
+    - [**Configure lint-staged**](#configure-lint-staged)
+    - [**Initialize Husky**](#initialize-husky)
+    - [**Install eslint**](#install-eslint)
+  - [**Babel**](#babel)
+  - [**Nodemon**](#nodemon)
+  - [**Task Management**](#task-management)
+  - [**Koa.js**](#koajs)
+    - [**Koa Body Parser**](#koa-body-parser)
+    - [**Koa Router**](#koa-router)
+    - [Koa CORS](#koa-cors)
+  - [**Environment Variables**](#environment-variables)
+  - [**Database: PostgreSQL**](#database-postgresql)
+    - [**Work with Database: Prisma**](#work-with-database-prisma)
+      - [Prisma Middlewares](#prisma-middlewares)
+    - [**ER Modeling**](#er-modeling)
+    - [**pgAdmin and Beekeper Studio**](#pgadmin-and-beekeper-studio)
+  - [**Authentication (Stateless)**](#authentication-stateless)
+    - [**Asymmetric Cryptography**](#asymmetric-cryptography)
+    - [**JWT (JSON Web Token)**](#jwt-json-web-token)
+    - [**User password in the database**](#user-password-in-the-database)
+    - [**Basic Auth (HTTP)**](#basic-auth-http)
+    - [**Resume**](#resume)
+    - [**HTTPS**](#https)
+  - [**Automated Tests**](#automated-tests)
+    - [Jest](#jest)
+      - [**Unit Test**](#unit-test)
+      - [**Integration Test**](#integration-test)
+      - [Jest Configuration](#jest-configuration)
+
 ## **Technologies and packages**
 
 1. Linters: See Linters section
@@ -304,6 +347,12 @@ yarn add --dev @babel/cli @babel/core @babel/node @babel/preset-env
 - Github: <https://github.com/koajs/router>
   - API reference: <https://github.com/koajs/router/blob/master/API.md>
 - Install: `yarn add @koa/router`
+
+### Koa CORS
+
+- Install: `yarn add @koa/cors`
+- Info: <https://dev.to/brunobertolini/como-realmente-o-cors-funciona-entendendo-de-uma-vez-por-todas-ae0>
+- We need to treat CORS in the backend
 
 ## **Environment Variables**
 

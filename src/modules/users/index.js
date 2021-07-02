@@ -11,6 +11,8 @@ import {
 } from './services'
 
 export const login = async (ctx) => {
+	console.log('API: Login')
+
 	try {
 		const [inputEmail, inputPassword] = decodeBasicToken(
 			ctx.request.headers.authorization
@@ -57,6 +59,8 @@ export const login = async (ctx) => {
 }
 
 export const list = async (ctx) => {
+	console.log('API: List')
+
 	try {
 		const users = await model.findMany()
 		ctx.body = users
@@ -68,6 +72,8 @@ export const list = async (ctx) => {
 }
 
 export const create = async (ctx) => {
+	console.log('API: Create')
+
 	try {
 		const saltRounds = 10
 
@@ -93,6 +99,8 @@ export const create = async (ctx) => {
 }
 
 export const update = async (ctx) => {
+	console.log('API: Update')
+
 	// Updates just name and email
 	const { name, email } = ctx.request.body
 
@@ -110,6 +118,8 @@ export const update = async (ctx) => {
 }
 
 export const remove = async (ctx) => {
+	console.log('API: Remove')
+
 	try {
 		await model.remove({
 			where: { id: ctx.params.id },
